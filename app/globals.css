@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+/* === MOBILE RESPONSIVE FIXES === */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+img, video, canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  nav[style], section[style], footer[style] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .grid-cols-3-fix { grid-template-columns: 1fr !important; }
+  .grid-cols-4-fix { grid-template-columns: 1fr 1fr !important; }
+  .hero-canvas-mobile { display: none !important; }
+}
+
 :root {
   --bg: #050608;
   --orange: #f97316;

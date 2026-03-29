@@ -127,7 +127,7 @@ export default function Home() {
             </div>
           </div>
           {/* Globe */}
-          <div style={{ position: "absolute", right: -80, top: 0, width: "55%", height: "100%", zIndex: 1 }}>
+          <div className="hero-canvas-mobile" style={{ position: "absolute", right: -80, top: 0, width: "55%", height: "100%", zIndex: 1 }}>
             <BitcoinGlobe3D />
           </div>
         </section>
@@ -147,7 +147,7 @@ export default function Home() {
         <section ref={el => addReveal(el as HTMLElement)} className="reveal" style={{ padding: "80px 48px" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto" }}>
             <p style={{ color: "#f97316", fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 24, textAlign: "center" }}>MARKET OVERVIEW</p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+            <div className="grid-cols-4-fix" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
               {marketData.map(m => (
                 <div key={m.coin} className="market-card">
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
@@ -172,7 +172,7 @@ export default function Home() {
                 <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Week</span>
               </h2>
             </div>
-            <div style={{ background: "#0a0a0c", border: "1px solid rgba(249,115,22,0.12)", borderRadius: 20, overflow: "hidden" }}>
+            <div style={{ background: "#0a0a0c", border: "1px solid rgba(249,115,22,0.12)", borderRadius: 20, overflow: "hidden", overflowX: "auto" }}>
               <table className="comparison-table">
                 <thead>
                   <tr>
@@ -218,7 +218,7 @@ export default function Home() {
                 <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Reviews</span>
               </h2>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(340px, 100%), 1fr))", gap: 24 }}>
               {featured.map(c => (
                 <Link key={c.slug} href={`/${c.slug}`} style={{ textDecoration: "none" }}>
                   <div className="card-border" style={{ padding: 28, transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
@@ -249,7 +249,7 @@ export default function Home() {
             <div style={{ textAlign: "center", marginBottom: 80 }}>
               <h2 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 800, color: "#f8fafc" }}>Our Research Method</h2>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 48 }}>
+            <div className="grid-cols-3-fix" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 48 }}>
               {steps.map((s, i) => (
                 <div key={i} style={{ position: "relative", padding: 32 }}>
                   <div className="ghost-number">{s.n}</div>
@@ -270,7 +270,7 @@ export default function Home() {
             <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#f8fafc", marginBottom: 64 }}>
               The most trusted crypto resource for US investors
             </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
+            <div className="grid-cols-4-fix" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
               {[
                 { n: "50+", label: "Exchanges reviewed" },
                 { n: "5M+", label: "Monthly readers" },
