@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #050608;
+  --orange: #f97316;
+  --gold: #eab308;
+  --text: #e2e8f0;
+  --muted: #64748b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none; }
+
+/* Cursor */
+.cursor-dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999; transform: translate(-50%,-50%); }
+.cursor-ring { width: 36px; height: 36px; border: 1.5px solid rgba(249,115,22,0.5); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99998; transform: translate(-50%,-50%); transition: all 0.12s ease; }
+
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, var(--orange), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Card */
+.card-border { position: relative; background: #0a0a0c; border-radius: 16px; }
+.card-border::before { content:''; position:absolute; inset:0; border-radius:16px; padding:1px; background:linear-gradient(135deg,rgba(249,115,22,0.35),rgba(234,179,8,0.15)); -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+
+/* Button */
+.btn-glow { position:relative; background:linear-gradient(135deg,var(--orange),var(--gold)); color:#000; font-weight:700; border:none; border-radius:10px; padding:14px 28px; cursor:none; transition:transform 0.2s ease,box-shadow 0.2s ease; display:inline-block; text-decoration:none; }
+.btn-glow:hover { transform:translateY(-2px); box-shadow:0 20px 40px rgba(249,115,22,0.35); }
+
+/* Scan line effect */
+@keyframes scanline { 0%{transform:translateY(-100%);} 100%{transform:translateY(100vh);} }
+.scanline-effect::after { content:''; position:fixed; top:0; left:0; right:0; height:2px; background:linear-gradient(to right,transparent,rgba(249,115,22,0.3),transparent); animation:scanline 8s linear infinite; pointer-events:none; z-index:1; }
+
+/* Marquee */
+@keyframes marquee { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+.marquee-inner { animation:marquee 30s linear infinite; white-space:nowrap; }
+
+/* Ghost number */
+.ghost-number { font-size:160px; font-weight:900; color:rgba(249,115,22,0.04); line-height:1; position:absolute; top:-20px; left:-10px; pointer-events:none; user-select:none; }
+
+/* Pulse */
+@keyframes pulse-orange { 0%,100%{text-shadow:0 0 20px rgba(249,115,22,0.3);} 50%{text-shadow:0 0 60px rgba(234,179,8,0.8);} }
+.pulse-glow { animation:pulse-orange 3s ease-in-out infinite; }
+
+/* Reveal */
+.reveal { opacity:0; transform:translateY(50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* Table */
+.comparison-table { width:100%; border-collapse:collapse; }
+.comparison-table th { background:rgba(249,115,22,0.08); color:var(--orange); padding:12px 16px; text-align:left; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; }
+.comparison-table td { padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; }
+.comparison-table tr:hover td { background:rgba(249,115,22,0.03); }
+
+/* Market card */
+.market-card { background:rgba(249,115,22,0.04); border:1px solid rgba(249,115,22,0.12); border-radius:16px; padding:24px; }
+
+/* Gauge */
+@keyframes spin-gauge { from{transform:rotate(-90deg);} to{transform:rotate(var(--gauge-deg));} }
