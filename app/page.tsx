@@ -78,65 +78,81 @@ export default function Home() {
   return (
     <>
       <CustomCursor />
-      <main style={{ background: "#050608", minHeight: "100vh" }}>
+      <main style={{ background: "#050608" }} className="min-h-screen">
+
         {/* NAV */}
-        <nav style={{
-          position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-          background: "rgba(5,6,8,0.88)", backdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(249,115,22,0.1)", padding: "0 clamp(16px, 4vw, 48px)",
-          height: 64, display: "flex", alignItems: "center", justifyContent: "space-between"
-        }}>
-          <span style={{ fontWeight: 800, fontSize: 20, background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+        <nav
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 lg:px-12 h-16"
+          style={{ background: "rgba(5,6,8,0.88)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(249,115,22,0.1)" }}
+        >
+          <span
+            className="font-extrabold text-xl"
+            style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+          >
             CryptoCompass ₿
           </span>
-          <div style={{ display: "flex", gap: 32, fontSize: 14, color: "#64748b", flexWrap: "wrap" }}>
-            <Link href="/fear-greed" style={{ color: "#64748b", textDecoration: "none" }}>Fear & Greed</Link>
-            <Link href={`/${cryptoPages[0].slug}`} style={{ color: "#64748b", textDecoration: "none" }}>Reviews</Link>
+          <div className="hidden md:flex gap-8 text-sm text-slate-500 flex-wrap">
+            <Link href="/fear-greed" className="text-slate-500 no-underline hover:text-slate-300 transition-colors">Fear &amp; Greed</Link>
+            <Link href={`/${cryptoPages[0].slug}`} className="text-slate-500 no-underline hover:text-slate-300 transition-colors">Reviews</Link>
           </div>
         </nav>
 
         {/* HERO */}
-        <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "clamp(80px, 12vw, 120px) clamp(16px, 4vw, 48px) 80px", position: "relative", overflow: "hidden", flexWrap: "wrap" }}>
-          <div style={{
-            position: "absolute", top: "15%", left: "20%", width: 700, height: 700,
-            background: "radial-gradient(circle, rgba(249,115,22,0.05) 0%, transparent 60%)",
-            pointerEvents: "none"
-          }} />
-          <div style={{ flex: 1, maxWidth: 640, position: "relative", zIndex: 2 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.2)", borderRadius: 100, padding: "6px 16px", marginBottom: 32 }}>
-              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#f97316", display: "inline-block" }} />
-              <span style={{ fontSize: 13, color: "#f97316", fontWeight: 600 }}>BTC: $72,450 · ETH: $3,820 · SOL: $182</span>
+        <section className="relative min-h-screen flex flex-col lg:flex-row items-center px-4 md:px-8 lg:px-16 pt-24 pb-16 overflow-hidden">
+          <div
+            className="absolute pointer-events-none"
+            style={{ top: "15%", left: "20%", width: 700, height: 700, background: "radial-gradient(circle, rgba(249,115,22,0.05) 0%, transparent 60%)" }}
+          />
+          <div className="flex-1 max-w-2xl relative z-10 text-center lg:text-left">
+            <div
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8"
+              style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.2)" }}
+            >
+              <span className="inline-block w-2 h-2 rounded-full" style={{ background: "#f97316" }} />
+              <span className="text-xs font-semibold" style={{ color: "#f97316" }}>BTC: $72,450 · ETH: $3,820 · SOL: $182</span>
             </div>
-            <h1 style={{ fontSize: "clamp(44px,5.5vw,80px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", color: "#f8fafc", marginBottom: 16 }}>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-slate-50 mb-4">
               {h1}
             </h1>
-            <h2 style={{ fontSize: "clamp(22px,3vw,38px)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: 24 }}>
+
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-6">
               <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>No hype.</span>{" "}
-              <span style={{ color: "#e2e8f0" }}>Just data.</span>
+              <span className="text-slate-200">Just data.</span>
             </h2>
-            <p style={{ fontSize: 17, color: "#64748b", lineHeight: 1.7, marginBottom: 40, maxWidth: 520 }}>
+
+            <p className="text-base md:text-lg text-slate-500 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
               Unbiased crypto exchange reviews, wallet comparisons, and guides for US investors. Regulatory-aware. Security-focused.
             </p>
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link href={`/${cryptoPages[0].slug}`} className="btn-glow" style={{ fontSize: 16 }}>
                 Best Exchanges 2026 →
               </Link>
-              <Link href="/fear-greed" style={{ display: "inline-block", padding: "14px 28px", border: "1px solid rgba(249,115,22,0.3)", borderRadius: 10, color: "#f97316", textDecoration: "none", fontSize: 16, fontWeight: 600 }}>
-                Fear & Greed Index
+              <Link
+                href="/fear-greed"
+                className="inline-block px-7 py-3.5 rounded-xl text-base font-semibold"
+                style={{ border: "1px solid rgba(249,115,22,0.3)", color: "#f97316", textDecoration: "none" }}
+              >
+                Fear &amp; Greed Index
               </Link>
             </div>
           </div>
-          {/* Globe */}
-          <div className="hero-canvas-mobile" style={{ position: "absolute", right: -80, top: 0, width: "55%", height: "100%", zIndex: 1 }}>
+
+          {/* Globe — hidden on mobile, visible on desktop */}
+          <div className="hidden lg:block flex-1 absolute top-0 h-full z-0" style={{ right: -80, width: "55%" }}>
             <BitcoinGlobe3D />
           </div>
         </section>
 
         {/* MARQUEE */}
-        <div style={{ borderTop: "1px solid rgba(249,115,22,0.08)", borderBottom: "1px solid rgba(249,115,22,0.08)", padding: "16px 0", overflow: "hidden", background: "rgba(249,115,22,0.02)" }}>
-          <div className="marquee-inner" style={{ display: "inline-flex", gap: 48, color: "#374151", fontSize: 13, fontWeight: 500 }}>
+        <div
+          className="overflow-hidden py-4"
+          style={{ borderTop: "1px solid rgba(249,115,22,0.08)", borderBottom: "1px solid rgba(249,115,22,0.08)", background: "rgba(249,115,22,0.02)" }}
+        >
+          <div className="marquee-inner inline-flex gap-12 text-slate-600 text-xs font-medium">
             {[...marqueeItems, ...marqueeItems].map((s, i) => (
-              <span key={i} style={{ display: "flex", alignItems: "center", gap: 12, whiteSpace: "nowrap" }}>
+              <span key={i} className="flex items-center gap-3 whitespace-nowrap">
                 <span style={{ color: "#f97316" }}>₿</span> {s}
               </span>
             ))}
@@ -144,35 +160,35 @@ export default function Home() {
         </div>
 
         {/* MARKET OVERVIEW */}
-        <section ref={el => addReveal(el as HTMLElement)} className="reveal" style={{ padding: "80px 48px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <p style={{ color: "#f97316", fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 24, textAlign: "center" }}>MARKET OVERVIEW</p>
-            <div className="grid-cols-4-fix" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+        <section ref={el => addReveal(el as HTMLElement)} className="reveal px-4 md:px-8 lg:px-16 py-16 md:py-20">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-6 text-center" style={{ color: "#f97316" }}>MARKET OVERVIEW</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {marketData.map(m => (
                 <div key={m.coin} className="market-card">
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                    <div style={{ fontWeight: 700, color: "#f97316", fontSize: 13 }}>{m.symbol}</div>
-                    <div style={{ color: m.positive ? "#10b981" : "#ef4444", fontSize: 13, fontWeight: 600 }}>{m.change}</div>
+                  <div className="flex justify-between items-center mb-3">
+                    <div className="text-xs font-bold" style={{ color: "#f97316" }}>{m.symbol}</div>
+                    <div className="text-xs font-semibold" style={{ color: m.positive ? "#10b981" : "#ef4444" }}>{m.change}</div>
                   </div>
-                  <div style={{ fontSize: 24, fontWeight: 900, color: "#f8fafc", letterSpacing: "-0.02em" }}>{m.price}</div>
-                  <div style={{ fontSize: 12, color: "#475569", marginTop: 4 }}>{m.coin}</div>
+                  <div className="text-2xl font-black tracking-tight" style={{ color: "#f8fafc" }}>{m.price}</div>
+                  <div className="text-xs mt-1" style={{ color: "#475569" }}>{m.coin}</div>
                 </div>
               ))}
             </div>
-            <p style={{ textAlign: "center", color: "#1e293b", fontSize: 11, marginTop: 12 }}>* Placeholder data — connect to real API for live prices</p>
+            <p className="text-center text-xs mt-3" style={{ color: "#1e293b" }}>* Placeholder data — connect to real API for live prices</p>
           </div>
         </section>
 
         {/* TOP EXCHANGES TABLE */}
-        <section ref={el => addReveal(el as HTMLElement)} className="reveal" style={{ padding: "0 48px 80px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, letterSpacing: "-0.02em", color: "#f8fafc" }}>
+        <section ref={el => addReveal(el as HTMLElement)} className="reveal px-4 md:px-8 lg:px-16 pb-16 md:pb-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-50">
                 Top Exchanges This{" "}
                 <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Week</span>
               </h2>
             </div>
-            <div style={{ background: "#0a0a0c", border: "1px solid rgba(249,115,22,0.12)", borderRadius: 20, overflow: "hidden", overflowX: "auto" }}>
+            <div className="rounded-2xl overflow-hidden overflow-x-auto" style={{ background: "#0a0a0c", border: "1px solid rgba(249,115,22,0.12)" }}>
               <table className="comparison-table">
                 <thead>
                   <tr>
@@ -187,16 +203,31 @@ export default function Home() {
                   {exchanges.map((ex, i) => (
                     <tr key={ex.name}>
                       <td>
-                        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                          {i === 0 && <span style={{ background: "rgba(249,115,22,0.15)", color: "#f97316", fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 100 }}>BEST PICK</span>}
-                          <span style={{ fontWeight: 700, color: "#e2e8f0" }}>{ex.name}</span>
+                        <div className="flex items-center gap-3 flex-wrap">
+                          {i === 0 && (
+                            <span
+                              className="text-xs font-bold px-2 py-0.5 rounded-full"
+                              style={{ background: "rgba(249,115,22,0.15)", color: "#f97316" }}
+                            >
+                              BEST PICK
+                            </span>
+                          )}
+                          <span className="font-bold" style={{ color: "#e2e8f0" }}>{ex.name}</span>
                         </div>
                       </td>
                       <td style={{ color: "#10b981", fontWeight: 600 }}>{ex.fee}</td>
                       <td style={{ color: "#94a3b8" }}>{ex.coins}</td>
                       <td style={{ color: i === 0 ? "#f97316" : "#64748b", fontWeight: 700 }}>{ex.rating}</td>
                       <td>
-                        <a href="#" style={{ background: i === 0 ? "linear-gradient(135deg,#f97316,#eab308)" : "transparent", color: i === 0 ? "#000" : "#f97316", border: i === 0 ? "none" : "1px solid rgba(249,115,22,0.3)", padding: "8px 16px", borderRadius: 8, textDecoration: "none", fontSize: 13, fontWeight: 700 }}>
+                        <a
+                          href="#"
+                          className="px-4 py-2 rounded-lg text-xs font-bold no-underline"
+                          style={{
+                            background: i === 0 ? "linear-gradient(135deg,#f97316,#eab308)" : "transparent",
+                            color: i === 0 ? "#000" : "#f97316",
+                            border: i === 0 ? "none" : "1px solid rgba(249,115,22,0.3)"
+                          }}
+                        >
                           {i === 0 ? "Top Pick →" : "Review →"}
                         </a>
                       </td>
@@ -209,33 +240,45 @@ export default function Home() {
         </section>
 
         {/* FEATURED COMPARISONS */}
-        <section ref={el => addReveal(el as HTMLElement)} className="reveal" style={{ padding: "60px 48px 100px", background: "rgba(249,115,22,0.02)", borderTop: "1px solid rgba(249,115,22,0.06)" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: 64 }}>
-              <p style={{ color: "#f97316", fontWeight: 600, fontSize: 13, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>COMPARISONS</p>
-              <h2 style={{ fontSize: "clamp(32px,4vw,52px)", fontWeight: 800, color: "#f8fafc" }}>
+        <section
+          ref={el => addReveal(el as HTMLElement)}
+          className="reveal px-4 md:px-8 lg:px-16 py-16 md:py-24"
+          style={{ background: "rgba(249,115,22,0.02)", borderTop: "1px solid rgba(249,115,22,0.06)" }}
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#f97316" }}>COMPARISONS</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-50">
                 Expert{" "}
-                <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Reviews</span>
+                <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                  Reviews
+                </span>
               </h2>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(340px, 100%), 1fr))", gap: 24 }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featured.map(c => (
                 <Link key={c.slug} href={`/${c.slug}`} style={{ textDecoration: "none" }}>
-                  <div className="card-border" style={{ padding: 28, transition: "transform 0.3s ease, box-shadow 0.3s ease" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
-                      <span style={{ background: "rgba(249,115,22,0.1)", color: "#f97316", fontSize: 11, fontWeight: 700, padding: "4px 10px", borderRadius: 100, textTransform: "uppercase" }}>
+                  <div className="card-border p-7 transition-all duration-300">
+                    <div className="flex justify-between mb-4">
+                      <span
+                        className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                        style={{ background: "rgba(249,115,22,0.1)", color: "#f97316" }}
+                      >
                         {c.category}
                       </span>
-                      <span style={{ color: "#eab308", fontSize: 12, fontWeight: 600 }}>{c.commission}</span>
+                      <span className="text-xs font-semibold" style={{ color: "#eab308" }}>{c.commission}</span>
                     </div>
-                    <h3 style={{ fontSize: 16, fontWeight: 700, color: "#f1f5f9", lineHeight: 1.4, marginBottom: 16 }}>{c.title}</h3>
-                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                      <span style={{ background: "rgba(249,115,22,0.12)", color: "#fb923c", fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 8 }}>
+                    <h3 className="text-base font-bold leading-snug mb-4" style={{ color: "#f1f5f9" }}>{c.title}</h3>
+                    <div className="flex gap-2.5 flex-wrap">
+                      <span
+                        className="text-xs font-semibold px-2.5 py-1 rounded-lg"
+                        style={{ background: "rgba(249,115,22,0.12)", color: "#fb923c" }}
+                      >
                         🥇 {c.winner}
                       </span>
-                      <span style={{ color: "#374151", fontSize: 12, display: "flex", alignItems: "center" }}>vs {c.runner_up}</span>
+                      <span className="text-xs flex items-center" style={{ color: "#374151" }}>vs {c.runner_up}</span>
                     </div>
-                    <div style={{ marginTop: 20, color: "#f97316", fontSize: 13, fontWeight: 600 }}>Read comparison →</div>
+                    <div className="mt-5 text-xs font-semibold" style={{ color: "#f97316" }}>Read comparison →</div>
                   </div>
                 </Link>
               ))}
@@ -244,19 +287,19 @@ export default function Home() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section ref={el => addReveal(el as HTMLElement)} className="reveal" style={{ padding: "100px 48px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: 80 }}>
-              <h2 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 800, color: "#f8fafc" }}>Our Research Method</h2>
+        <section ref={el => addReveal(el as HTMLElement)} className="reveal px-4 md:px-8 lg:px-16 py-16 md:py-24">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 md:mb-20">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-50">Our Research Method</h2>
             </div>
-            <div className="grid-cols-3-fix" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 48 }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {steps.map((s, i) => (
-                <div key={i} style={{ position: "relative", padding: 32 }}>
+                <div key={i} className="relative p-8">
                   <div className="ghost-number">{s.n}</div>
-                  <div style={{ position: "relative", zIndex: 1 }}>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: "#f97316", marginBottom: 16, letterSpacing: "0.1em" }}>{s.n}</div>
-                    <h3 style={{ fontSize: 22, fontWeight: 800, color: "#f1f5f9", marginBottom: 12 }}>{s.title}</h3>
-                    <p style={{ color: "#64748b", lineHeight: 1.7, fontSize: 15 }}>{s.desc}</p>
+                  <div className="relative z-10">
+                    <div className="text-xs font-bold tracking-widest mb-4" style={{ color: "#f97316" }}>{s.n}</div>
+                    <h3 className="text-xl md:text-2xl font-extrabold mb-3" style={{ color: "#f1f5f9" }}>{s.title}</h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "#64748b" }}>{s.desc}</p>
                   </div>
                 </div>
               ))}
@@ -265,12 +308,16 @@ export default function Home() {
         </section>
 
         {/* TRUST STATS */}
-        <section ref={el => addReveal(el as HTMLElement)} className="reveal" style={{ padding: "100px 48px", background: "linear-gradient(135deg,rgba(249,115,22,0.04),rgba(234,179,8,0.02))", borderTop: "1px solid rgba(249,115,22,0.06)" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
-            <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, color: "#f8fafc", marginBottom: 64 }}>
+        <section
+          ref={el => addReveal(el as HTMLElement)}
+          className="reveal px-4 md:px-8 lg:px-16 py-16 md:py-24"
+          style={{ background: "linear-gradient(135deg,rgba(249,115,22,0.04),rgba(234,179,8,0.02))", borderTop: "1px solid rgba(249,115,22,0.06)" }}
+        >
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-slate-50 mb-16">
               The most trusted crypto resource for US investors
             </h2>
-            <div className="grid-cols-4-fix" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { n: "50+", label: "Exchanges reviewed" },
                 { n: "5M+", label: "Monthly readers" },
@@ -278,8 +325,8 @@ export default function Home() {
                 { n: "0", label: "Paid rankings" },
               ].map((s, i) => (
                 <div key={i}>
-                  <div className="pulse-glow" style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 900, color: "#f97316", marginBottom: 8 }}>{s.n}</div>
-                  <div style={{ fontSize: 14, color: "#475569" }}>{s.label}</div>
+                  <div className="pulse-glow text-3xl md:text-4xl lg:text-5xl font-black mb-2" style={{ color: "#f97316" }}>{s.n}</div>
+                  <div className="text-sm" style={{ color: "#475569" }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -287,14 +334,19 @@ export default function Home() {
         </section>
 
         {/* FINAL CTA */}
-        <section ref={el => addReveal(el as HTMLElement)} className="reveal" style={{ padding: "120px 48px", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(249,115,22,0.07), transparent)", pointerEvents: "none" }} />
-          <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-            <h2 style={{ fontSize: "clamp(32px,5vw,60px)", fontWeight: 900, letterSpacing: "-0.03em", color: "#f8fafc", marginBottom: 24 }}>
+        <section ref={el => addReveal(el as HTMLElement)} className="reveal px-4 md:px-8 lg:px-16 py-20 md:py-28 relative overflow-hidden">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(249,115,22,0.07), transparent)" }}
+          />
+          <div className="max-w-2xl mx-auto text-center relative z-10">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-50 mb-6">
               Ready to buy your first{" "}
-              <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Bitcoin?</span>
+              <span style={{ background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                Bitcoin?
+              </span>
             </h2>
-            <p style={{ color: "#64748b", fontSize: 17, marginBottom: 40 }}>
+            <p className="text-base md:text-lg text-slate-500 mb-10">
               Start with our best exchange pick for 2026. Regulated, secure, and beginner-friendly.
             </p>
             <Link href={`/${cryptoPages[0].slug}`} className="btn-glow" style={{ fontSize: 18, padding: "18px 40px" }}>
@@ -303,15 +355,18 @@ export default function Home() {
           </div>
         </section>
 
-        <footer style={{ padding: "48px", borderTop: "1px solid rgba(255,255,255,0.05)", color: "#374151", fontSize: 13 }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
+        <footer
+          className="px-4 md:px-8 lg:px-12 py-12 text-xs"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)", color: "#374151" }}
+        >
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4">
             <div>
-              <div style={{ fontWeight: 800, fontSize: 16, color: "#f97316", marginBottom: 8 }}>CryptoCompass ₿</div>
+              <div className="font-extrabold text-base mb-2" style={{ color: "#f97316" }}>CryptoCompass ₿</div>
               <div>US crypto exchange reviews since 2021. Not financial advice.</div>
             </div>
             <div>
-              <p>Affiliate Disclosure: We earn commissions. This doesn't affect rankings.</p>
-              <p style={{ marginTop: 8 }}>© 2026 CryptoCompass · Crypto is risky · DYOR</p>
+              <p>Affiliate Disclosure: We earn commissions. This doesn&apos;t affect rankings.</p>
+              <p className="mt-2">© 2026 CryptoCompass · Crypto is risky · DYOR</p>
             </div>
           </div>
         </footer>
