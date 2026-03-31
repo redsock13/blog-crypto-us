@@ -83,20 +83,20 @@ export default function Home() {
         <nav style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
           background: "rgba(5,6,8,0.88)", backdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(249,115,22,0.1)", padding: "0 48px",
+          borderBottom: "1px solid rgba(249,115,22,0.1)", padding: "0 clamp(16px, 4vw, 48px)",
           height: 64, display: "flex", alignItems: "center", justifyContent: "space-between"
         }}>
           <span style={{ fontWeight: 800, fontSize: 20, background: "linear-gradient(135deg,#f97316,#eab308)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             CryptoCompass ₿
           </span>
-          <div style={{ display: "flex", gap: 32, fontSize: 14, color: "#64748b" }}>
+          <div style={{ display: "flex", gap: 32, fontSize: 14, color: "#64748b", flexWrap: "wrap" }}>
             <Link href="/fear-greed" style={{ color: "#64748b", textDecoration: "none" }}>Fear & Greed</Link>
             <Link href={`/${cryptoPages[0].slug}`} style={{ color: "#64748b", textDecoration: "none" }}>Reviews</Link>
           </div>
         </nav>
 
         {/* HERO */}
-        <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "120px 48px 80px", position: "relative", overflow: "hidden" }}>
+        <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "clamp(80px, 12vw, 120px) clamp(16px, 4vw, 48px) 80px", position: "relative", overflow: "hidden", flexWrap: "wrap" }}>
           <div style={{
             position: "absolute", top: "15%", left: "20%", width: 700, height: 700,
             background: "radial-gradient(circle, rgba(249,115,22,0.05) 0%, transparent 60%)",
