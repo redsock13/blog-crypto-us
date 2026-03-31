@@ -86,7 +86,7 @@ export default async function CryptoPage({ params }: { params: Promise<{ slug: s
         </div>
 
         {/* Pros / Cons */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 48 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 24, marginBottom: 48 }}>
           <div style={{ background: "#0a0a0c", border: "1px solid rgba(16,185,129,0.15)", borderRadius: 16, padding: 24 }}>
             <h3 style={{ fontSize: 15, fontWeight: 700, color: "#10b981", marginBottom: 16 }}>{c.winner} Pros</h3>
             {c.winnerPros.map((p, i) => (
